@@ -1,0 +1,579 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homework - Javascript forms</title>
+        <link rel="stylesheet" href="/ABZ Travel Agency/style.css" />
+        <!-- CSS -->
+        <link href="/ABZ Travel Agency/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <h1>Order form,Validation & Print</h1>
+            <p>
+                Please find order form below. The form has data input validation in place. After
+                pressing submit button the collected data in form are displayed on the screen.
+            </p>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Form - Customer Details -->
+            <div id="formCusotomerDetails">
+                <h2>Customer Details</h2>
+
+                <label for="fname">First name*</label><br />
+                <input
+                    type="text"
+                    name="fname"
+                    id="fname"
+                    placeholder="John"
+                    pattern="[A-Za-z]"
+                    required
+                    autofocus
+                /><br />
+
+                <label for="lname">Last name*</label><br />
+                <input
+                    type="text"
+                    name="lname"
+                    id="lname"
+                    placeholder="Smith"
+                    pattern="[A-Za-z]"
+                    required
+                /><br />
+
+                <label for="cname">Company name <span class="optional">(optional)</span></label
+                ><br />
+                <input type="text" name="cname" id="cname" placeholder="Your company name" /><br />
+
+                <label for="country">Country*</label><br />
+                <select name="country" id="country">
+                    Country</select
+                ><br />
+
+                <!-- JS -->
+                <script>
+                    const countryList = [
+                        "Select your country",
+                        "Afghanistan",
+                        "Albania",
+                        "Algeria",
+                        "American Samoa",
+                        "Andorra",
+                        "Angola",
+                        "Anguilla",
+                        "Antarctica",
+                        "Antigua and Barbuda",
+                        "Argentina",
+                        "Armenia",
+                        "Aruba",
+                        "Australia",
+                        "Austria",
+                        "Azerbaijan",
+                        "Bahamas (the)",
+                        "Bahrain",
+                        "Bangladesh",
+                        "Barbados",
+                        "Belarus",
+                        "Belgium",
+                        "Belize",
+                        "Benin",
+                        "Bermuda",
+                        "Bhutan",
+                        "Bolivia (Plurinational State of)",
+                        "Bonaire, Sint Eustatius and Saba",
+                        "Bosnia and Herzegovina",
+                        "Botswana",
+                        "Bouvet Island",
+                        "Brazil",
+                        "British Indian Ocean Territory (the)",
+                        "Brunei Darussalam",
+                        "Bulgaria",
+                        "Burkina Faso",
+                        "Burundi",
+                        "Cabo Verde",
+                        "Cambodia",
+                        "Cameroon",
+                        "Canada",
+                        "Cayman Islands (the)",
+                        "Central African Republic (the)",
+                        "Chad",
+                        "Chile",
+                        "China",
+                        "Christmas Island",
+                        "Cocos (Keeling) Islands (the)",
+                        "Colombia",
+                        "Comoros (the)",
+                        "Congo (the Democratic Republic of the)",
+                        "Congo (the)",
+                        "Cook Islands (the)",
+                        "Costa Rica",
+                        "Croatia",
+                        "Cuba",
+                        "Curaçao",
+                        "Cyprus",
+                        "Czechia",
+                        "Côte d'Ivoire",
+                        "Denmark",
+                        "Djibouti",
+                        "Dominica",
+                        "Dominican Republic (the)",
+                        "Ecuador",
+                        "Egypt",
+                        "El Salvador",
+                        "Equatorial Guinea",
+                        "Eritrea",
+                        "Estonia",
+                        "Eswatini",
+                        "Ethiopia",
+                        "Falkland Islands (the) [Malvinas]",
+                        "Faroe Islands (the)",
+                        "Fiji",
+                        "Finland",
+                        "France",
+                        "French Guiana",
+                        "French Polynesia",
+                        "French Southern Territories (the)",
+                        "Gabon",
+                        "Gambia (the)",
+                        "Georgia",
+                        "Germany",
+                        "Ghana",
+                        "Gibraltar",
+                        "Greece",
+                        "Greenland",
+                        "Grenada",
+                        "Guadeloupe",
+                        "Guam",
+                        "Guatemala",
+                        "Guernsey",
+                        "Guinea",
+                        "Guinea-Bissau",
+                        "Guyana",
+                        "Haiti",
+                        "Heard Island and McDonald Islands",
+                        "Holy See (the)",
+                        "Honduras",
+                        "Hong Kong",
+                        "Hungary",
+                        "Iceland",
+                        "India",
+                        "Indonesia",
+                        "Iran (Islamic Republic of)",
+                        "Iraq",
+                        "Ireland",
+                        "Isle of Man",
+                        "Israel",
+                        "Italy",
+                        "Jamaica",
+                        "Japan",
+                        "Jersey",
+                        "Jordan",
+                        "Kazakhstan",
+                        "Kenya",
+                        "Kiribati",
+                        "Korea (the Democratic People's Republic of)",
+                        "Korea (the Republic of)",
+                        "Kuwait",
+                        "Kyrgyzstan",
+                        "Lao People's Democratic Republic (the)",
+                        "Latvia",
+                        "Lebanon",
+                        "Lesotho",
+                        "Liberia",
+                        "Libya",
+                        "Liechtenstein",
+                        "Lithuania",
+                        "Luxembourg",
+                        "Macao",
+                        "Madagascar",
+                        "Malawi",
+                        "Malaysia",
+                        "Maldives",
+                        "Mali",
+                        "Malta",
+                        "Marshall Islands (the)",
+                        "Martinique",
+                        "Mauritania",
+                        "Mauritius",
+                        "Mayotte",
+                        "Mexico",
+                        "Micronesia (Federated States of)",
+                        "Moldova (the Republic of)",
+                        "Monaco",
+                        "Mongolia",
+                        "Montenegro",
+                        "Montserrat",
+                        "Morocco",
+                        "Mozambique",
+                        "Myanmar",
+                        "Namibia",
+                        "Nauru",
+                        "Nepal",
+                        "Netherlands (the)",
+                        "New Caledonia",
+                        "New Zealand",
+                        "Nicaragua",
+                        "Niger (the)",
+                        "Nigeria",
+                        "Niue",
+                        "Norfolk Island",
+                        "Northern Mariana Islands (the)",
+                        "Norway",
+                        "Oman",
+                        "Pakistan",
+                        "Palau",
+                        "Palestine, State of",
+                        "Panama",
+                        "Papua New Guinea",
+                        "Paraguay",
+                        "Peru",
+                        "Philippines (the)",
+                        "Pitcairn",
+                        "Poland",
+                        "Portugal",
+                        "Puerto Rico",
+                        "Qatar",
+                        "Republic of North Macedonia",
+                        "Romania",
+                        "Russian Federation (the)",
+                        "Rwanda",
+                        "Réunion",
+                        "Saint Barthélemy",
+                        "Saint Helena, Ascension and Tristan da Cunha",
+                        "Saint Kitts and Nevis",
+                        "Saint Lucia",
+                        "Saint Martin (French part)",
+                        "Saint Pierre and Miquelon",
+                        "Saint Vincent and the Grenadines",
+                        "Samoa",
+                        "San Marino",
+                        "Sao Tome and Principe",
+                        "Saudi Arabia",
+                        "Senegal",
+                        "Serbia",
+                        "Seychelles",
+                        "Sierra Leone",
+                        "Singapore",
+                        "Sint Maarten (Dutch part)",
+                        "Slovakia",
+                        "Slovenia",
+                        "Solomon Islands",
+                        "Somalia",
+                        "South Africa",
+                        "South Georgia and the South Sandwich Islands",
+                        "South Sudan",
+                        "Spain",
+                        "Sri Lanka",
+                        "Sudan (the)",
+                        "Suriname",
+                        "Svalbard and Jan Mayen",
+                        "Sweden",
+                        "Switzerland",
+                        "Syrian Arab Republic",
+                        "Taiwan",
+                        "Tajikistan",
+                        "Tanzania, United Republic of",
+                        "Thailand",
+                        "Timor-Leste",
+                        "Togo",
+                        "Tokelau",
+                        "Tonga",
+                        "Trinidad and Tobago",
+                        "Tunisia",
+                        "Turkey",
+                        "Turkmenistan",
+                        "Turks and Caicos Islands (the)",
+                        "Tuvalu",
+                        "Uganda",
+                        "Ukraine",
+                        "United Arab Emirates (the)",
+                        "United Kingdom of Great Britain and Northern Ireland (the)",
+                        "United States Minor Outlying Islands (the)",
+                        "United States of America (the)",
+                        "Uruguay",
+                        "Uzbekistan",
+                        "Vanuatu",
+                        "Venezuela (Bolivarian Republic of)",
+                        "Viet Nam",
+                        "Virgin Islands (British)",
+                        "Virgin Islands (U.S.)",
+                        "Wallis and Futuna",
+                        "Western Sahara",
+                        "Yemen",
+                        "Zambia",
+                        "Zimbabwe",
+                        "Åland Islands",
+                    ];
+                    let option = "";
+
+                    countryList.forEach(createListCountries);
+                    document.getElementById("country").innerHTML = option;
+
+                    function createListCountries(value, index, array) {
+                        option += "<option value='" + value + "'>" + value + "</option>";
+                    }
+                </script>
+
+                <label for="street" required>Street*</label><br />
+                <input name="street" id="street" placeholder="1st address line" /><br />
+
+                <label for="city">Town / City*</label><br />
+                <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    placeholder="London"
+                    pattern="[A-Za-z]"
+                    required
+                /><br />
+
+                <label for="postcode" required>Postcode*</label><br />
+                <input type="text" name="postcode" id="postcode" placeholder="EC3V 3LA" /><br />
+
+                <label for="phone">Phone number <span class="optional">(optional)</span></label
+                ><br />
+                <input
+                    type="number"
+                    name="phone"
+                    id="phone"
+                    placeholder="123456789"
+                    pattern="[0-9]{9}"
+                /><br />
+
+                <label for="email">Email address*</label><br />
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="john.smith@email.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    required
+                /><br />
+
+                <label for="note">Note <span class="optional">(optional)</span></label
+                ><br />
+                <textarea
+                    name="note"
+                    id="note"
+                    rows="4"
+                    cols="50"
+                    maxlength="250"
+                    placeholder="Enter your note here. (limited to 250 characters)."
+                ></textarea
+                ><br />
+
+                <input type="submit" onclick="validateCustomerDetails()" value="Submit" /><br />
+
+                <!-- JS -->
+                <script>
+                    function validateCustomerDetails() {
+                        //TODO: Create Full name formula
+                        var fName = document.getElementById("fname").value;
+                        var lName = document.getElementById("lname").value;
+                        var fullName = fName + " " + lName;
+
+                        var companyName = document.getElementById("cname").value;
+
+                        //TODO: Create Address formula
+                        var street = document.getElementById("street").value;
+                        var city = document.getElementById("city").value;
+                        var postcode = document.getElementById("postcode").value;
+                        var country = document.getElementById("country").value;
+                        var address = street + ", " + city + ", " + postcode + ", " + country;
+
+                        var phone = document.getElementById("phone").value;
+                        var email = document.getElementById("email").value;
+                        var note = document.getElementById("note").value;
+
+                        //TODO: Create Validation function
+                        var fNameCheckPattern = /^[a-zA-Z]+$/;
+                        var lNameCheckPattern = /^[a-zA-Z]+$/;
+                        var cityCheckPattern = /^[a-zA-Z]+$/;
+                        var phoneCheckPattern = /[0-9]{9}/;
+                        var emailCheckPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+                        if (!fNameCheckPattern.test(fName)) {
+                            document.getElementById("fname").focus();
+                            alert(
+                                "Please enter First name correctly. Only Characters are allowed.",
+                            );
+                        } else if (!lNameCheckPattern.test(lName)) {
+                            document.getElementById("lname").focus();
+                            alert("Please enter Last name correctly. Only Characters are allowed.");
+                        } else if (!cityCheckPattern.test(city)) {
+                            document.getElementById("city").focus();
+                            alert(
+                                "Please enter the town / city name correctly. Only Characters are allowed.",
+                            );
+                        } else if (!phoneCheckPattern.test(phone)) {
+                            document.getElementById("phone").focus();
+                            alert(
+                                "Please enter your phone number right formate. Example: 123456798",
+                            );
+                        } else if (!emailCheckPattern.test(email)) {
+                            document.getElementById("email").focus();
+                            alert(
+                                "Please enter your email in right formate. Example: John.Smith@email.com",
+                            );
+                        } else {
+                            printCustomerDetails();
+                        }
+
+                        function printCustomerDetails() {
+                            document.getElementById("outputFullName").innerHTML =
+                                "<b>Full name: </b>" + fullName;
+                            document.getElementById("outputCompanyName").innerHTML =
+                                "<b>Company name: </b>" + companyName;
+                            document.getElementById("outputAddress").innerHTML =
+                                "<b>Address: </b>" + address;
+                            document.getElementById("outputPhone").innerHTML =
+                                "<b>Phone: </b>" + phone;
+                            document.getElementById("outputEmail").innerHTML =
+                                "<b>Email: </b>" + email;
+                            document.getElementById("outputNote").innerHTML =
+                                "<b>Note: </b>" + note;
+                        }
+                    }
+                </script>
+
+                <small>*required fields</small>
+            </div>
+
+            <!-- Form - Expedition -->
+            <div id="formExpedition">
+                <h2>Expedition Details</h2>
+
+                <div id="expedition">
+                    <form id="destinations">
+                        <label for="northPole">North Pole</label>
+                        <input
+                            type="radio"
+                            id="northPole"
+                            name="destination"
+                            value="North Pole"
+                            required="required"
+                            checked
+                        />
+                        <label for="southPole">South Pole</label>
+                        <input type="radio" id="southPole" name="destination" value="South Pole" />
+                        <label for="marianaTrench">Mariana Trench</label>
+                        <input
+                            type="radio"
+                            id="marianaTrench"
+                            name="destination"
+                            value="Mariana Trench"
+                        />
+                    </form>
+                </div>
+                <br />
+
+                <div id="dates">
+                    <div id="fromdate">
+                        <label for="fdate">From*</label><br />
+                        <input
+                            type="date"
+                            name="fdate"
+                            id="fdate"
+                            value="2021-11-09"
+                            min="2021-11-09"
+                            max="2022-11-09"
+                            required
+                        /><br />
+                    </div>
+
+                    <div id="enddate">
+                        <label for="edate">To*</label><br />
+                        <input
+                            type="date"
+                            name="edate"
+                            id="edate"
+                            value="2021-11-09"
+                            min="2021-11-10"
+                            max="2022-11-09"
+                            required
+                        /><br />
+                    </div>
+                </div>
+                <br />
+
+                <input type="submit" onclick="validateExpeditionDetails()" /><br />
+
+                <!-- JS -->
+                <script>
+                    function validateExpeditionDetails() {
+                        //TODO: Create check function or jQuery
+                        var destination = document.querySelector(
+                            "input[name=destination]:checked",
+                        ).value; //jQuery library solution
+                        var fromDate = document.getElementById("fdate").value;
+                        var toDate = document.getElementById("edate").value;
+                        //TODO: create Total days formula
+                        var totalDays =
+                            (new Date(toDate) - new Date(fromDate)) / (1000 * 60 * 60 * 24);
+
+                        //JS radio check function - optional, not in use
+                        function checkRadio() {
+                            document.getElementsByName("destination").forEach((radio) => {
+                                if (radio.checked) {
+                                    console.log(radio.value);
+                                }
+                            });
+                        }
+
+                        //TODO: Create Validation function
+                        if (totalDays === 0 || totalDays <= 14) {
+                            alert("Your expedition must to be longer then 2 weeks!");
+                        } else printExpeditionDetails();
+
+                        //TODO: Create print function
+                        function printExpeditionDetails() {
+                            document.getElementById("outputDestination").innerHTML =
+                                "<b>Destination: </b>" + destination;
+                            document.getElementById("outputFromDate").innerHTML =
+                                "<b>From: </b>" + fromDate;
+                            document.getElementById("outputToDate").innerHTML =
+                                "<b>To: </b>" + toDate;
+                            document.getElementById("outputTotalDays").innerHTML =
+                                "<b>Total days: </b>" + totalDays;
+                        }
+                    }
+                </script>
+
+                <small>*required fields</small>
+            </div>
+
+            <!-- Print forms -->
+            <div id="print">
+                <h2>Congrats! Get ready for your expedition. We will contact you soon.</h2>
+                <small>This is a printable version of your forms.</small>
+                <hr />
+
+                <h3>Customer Details</h3>
+                <p id="outputFullName"><b>Full name:</b></p>
+                <p id="outputCompanyName">
+                    <b>Company name:</b>
+                </p>
+                <p id="outputAddress"><b>Address:</b></p>
+                <p id="outputPhone"><b>Phone:</b></p>
+                <p id="outputEmail"><b>Email:</b></p>
+                <p id="outputNote"><b>Note:</b></p>
+                <hr />
+
+                <h3>Expedition Details</h3>
+                <p id="outputDestination">
+                    <b>Destination:</b>
+                </p>
+                <p id="outputFromDate"><b>From:</b></p>
+                <p id="outputToDate"><b>To:</b></p>
+                <p id="outputTotalDays"><b>Total days:</b></p>
+            </div>
+        </div>
+    </body>
+</html>

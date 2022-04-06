@@ -1,0 +1,67 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My first App - Lesson 8 (Home Work)</title>
+        <link rel="stylesheet" href="/Abz - inprogress - Link/app.css" />
+
+        <!-- This is a link to add icon(image) on the Tab  -->
+        <link
+            href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAJ63/AAei/wAJov8AF6n/AGrG/wAnsP8ACqX/ADq3/wDr+P8AAZ7/AOz4/wAdrP8An9v/ACyz/wAus/8A////AFG+/wAAof8AAaH/AASh/wAFof8ABqH/ABao/wDW8P8Aecz/AAqk/wCM0/8A6vf/AOv3/wCc2v8A+/7/APz+/wAAoP8A3vP/AAGg/wAPp/8AA6D/AMLo/wDy+v8ALrX/ACKu/wB2y/8ANbX/ALfk/wDm9v8AO7X/AA2j/wA8tf8Amtn/APr9/wBNvP8ATrz/AH7O/wDc8v8AAJ//AAGf/wC/5/8ANLH/AC60/wCj3P8ApNz/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhISEhIyEhISEhISEPAAAANzc3NzgHODc3Nzc3DwAAADc3NzgvHzM3Nzc3Nw8AAAA3NzcaECYQNDc3NzcPAAAANzc3EhEKMBA0Nzc3DwAAADc3Nzg3OAouJwQ3Nw8AAAA3Nzc3Nzc3Chc4NzcPAAAAEhISEhISEhISEhISKAAAADwNMTExMTExMTExMTkAAAAQICoeEBAQECAZGxAQAAAAEC0VOxAQEBAJAwwQEAAAABAcFQYQEBAQCwIMEBAAAAAQECQTMhAQEDYhCBAQAAAAEBAFOAEiHRgUIywQEAAAABAQEBY4OCUhIzoQEBAAAAAQEBAQNQ4pKz0QEBAQAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMABAAA="
+            rel="icon"
+            type="image/x-icon"
+        />
+    </head>
+
+    <body>
+        <nav>
+            <div class="container" id="navContainer">
+                <h1 class="nav-header">Abz Tech</h1>
+                <a id="addBtn">+</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="panel" id="addlinkPanel">
+                <h3 class="panel-heading">Add Link</h3>
+
+                <!-- Here I added the form types and placeholders  -->
+                <form id="addLinkForm">
+                    <input
+                        type="text"
+                        name="title"
+                        id="linkTitle"
+                        class="form-control"
+                        placeholder="Title"
+                    />
+                    <input
+                        type="text"
+                        name="url"
+                        id="linkTitle"
+                        class="form-control"
+                        placeholder="URL"
+                    />
+                    <input
+                        type="text"
+                        name="category"
+                        id="linkCategory"
+                        class="form-control"
+                        placeholder="Categories (comma separated)"
+                    />
+
+                    <div id="addedCategories"></div>
+
+                    <input type="submit" id="submitButton" value="Submit" />
+                    <input type="submit" id="cancelButton" value="Cancel" />
+                </form>
+            </div>
+            <div id="LinksList"></div>
+        </div>
+
+        <script src="/Abz - inprogress - Link/app.js"></script>
+    </body>
+</html>
